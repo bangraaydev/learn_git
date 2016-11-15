@@ -1,0 +1,122 @@
+
+
+- install git 
+$ yum install git
+
+- generate ssh keygen 
+$ ssh-keygen -t rsa -C "your_email@gmail.com"
+
+- isi dari /home/bangraay/.ssh/id_rsa.pub
+di copy ke menu account-> setting-> SSH and GPG keys
+
+- buatlah New SSH key di akun github anda
+
+- paste key tersebut /home/bangraay/.ssh/id_rsa.pub)ke dalam form "key" dan save
+
+- setelah itu kita akan test apakah berhasil setelah menambahkan ssh key yang 
+sudah kita lakukan
+- ketikkan command dibawah ini
+$ ssh -T git@github.com
+
+- jika anda benar maka hasilnya akan seperti ini
+
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
+- selanjutnya adalah membuat repository baru di github
+https://github.com/new
+
+- setelah anda membuat repository baru, kita akan belajar memanage
+repository kita, misalkan nama repository yang dibuat "testing"
+
+- kita buat terlebih dahulu directory di komputer masing-masing
+misalkan namanya "projectlatihan"
+
+- masuk kedalam directory "projectlatihan"
+$ cd projectlatihan
+
+- setelah itu kita mengclone repository "testing"
+$ git clone git@github.com:bangraay/testing.git
+
+- sekarang kita cek apakah ada directory baru yang bernama "testing"
+$ ll
+
+- lalu menambah file dalam directory "testing"
+$ cd testing
+$ touch README.md
+
+- dan sekarang kita liat status perubahan 
+$ git status
+
+- selanjutnya adalah cara menambahkan file ke repository github online
+
+//untuk menambahkan 1 file saja
+$ git add README.md
+
+//untuk menambahkan semua file
+$ git add .
+
+- lalu mengcommit status perubahan ke repository 
+$ git commit -m "Firs Commit"
+
+- selanjutnya adalah mengupload file yang telah di commit tadi 
+ke repo github
+$ git push
+
+- dan terakhir cek status lagi
+$ git status
+
+- dan selanjutnya adalah perinth git tambahan yang sering digunakan
+//penggunaan git pull ini sangat membantu sekali, apabila dalam 1 repository kita bekerja dengan 2 orang programmer atau lebih. Perintahnya adalah:
+
+$ git pull
+
+- menambahkan Branch
+Branch didalam git adalah sebuah area kerja. Contoh pada kasus sebelumnya kan kita menggunakan branch master, nah selain branch master, ternyata kita juga bisa membuat branch lainnya. Contoh perintahnya:
+
+$ git branch -a
+
+Tanda bintang disana itu menunjukan branch yang aktif saat ini. Dan berikut adalah perintah untuk membuat branch yang baru.
+
+- membuat branch baru
+$ git branch new-branch
+
+- masuk ke dalam branch yang sudah dibuat sebelumnya
+$ git checkout new-version
+
+- sekarang coba tambahkan file baru dan lakukan commit
+$ nano index.html
+$ git commit -m "Tambah branch Baru"
+$ git add .
+
+- sekarang push branch tadi ke repo github
+$ git push origin new-branch
+
+- dan sekarang adalah Merge Branch. Merge Branch adalah
+melakukan penggabungan Branch. Caranya :
+
+$ git checkout master
+$ git merge new-branch
+
+- selanjutnya adalah mengupload file yang telah di commit tadi ke repo github
+di Branch master
+$ git push origin master
+
+- untuk delete branchnya cukup jalankan perintah ini
+$ git push origin :new-branch 
+$ git branch -d new-branch
+
+
+
+
+
+
+
+Resource :
+
+http://imron02.blogspot.co.id/2013/04/menggunakan-git-di-linux.html
+https://git-scm.com/book/id/v1/Branching-Pada-Git-Apakah-Branch-Itu
+
+
+
+
+

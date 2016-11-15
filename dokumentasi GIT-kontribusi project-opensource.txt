@@ -1,0 +1,164 @@
+================ Berkontribusi di Proyek git ===============
+
+
+
+// project pusat "https://github.com/bangraay/multiple-auth-ci.git"
+// project hasil cloningan/fork "https://github.com/bangraay/multiple-auth-ci.git"
+
+// Lokasi File ssh public,key => (/c/Users/framcode/.ssh/id_rsa):
+
+
+
+
+
+1- buat folder dlu, misal latihan
+$mkdir latihan
+
+2- setting dlu username dan email
+$ git config --global user.name "bangraaydev"
+$ git config --global user.email framcode@gmail.com
+
+
+3- cloning project yang suda anda fork ke akun github anda (fork dlu project pusat yang ini "https://github.com/bangraay/multiple-auth-ci.git" dari akun github)
+$ git clone git@github.com:bangraaydev/multiple-auth-ci.git
+
+4- masuk ke dalam repository
+$ cd multiple-auth-ci/
+
+
+6- menambahkan repository pusat ke lokal milik kita
+$ git remote add upstream https://github.com/bangraay/multiple-auth-ci.git
+
+
+7- membuat branch baru terlebih dahulu agar tidak merusak history, anda juga akan otomatis
+masuk ke dalam branch "sample-project"
+$ git checkout -b sample-project
+
+
+8- menambahkan file ke dalam repository
+$ touch index.php
+
+
+9- jika merasa ada penambahan file
+// menambahkan semua perubahan yang ada di direktori 
+$ git add .
+//menambahkan hanya satu file
+$ git add index.php
+
+
+
+10- stelah melakukan perubahan file atau penambahan file, 
+silahkan lakukan commit, berisi pesan apa yang telah anda kontribusikan / lakukan perubahan.
+
+$ git commit -m "creating file pertama index.php"
+
+
+
+11- kita lakukan persiapan untuk pull ke repo pusat, sebelum itu kita pindah branch dulu ke master. 
+
+$ git checkout master
+
+12- Setelah itu, kita akan mengambil kode lagi dari pusat, untuk memastikan tidak terdapat konflik 
+pada kontribusi kode kita. Konflik dapat terjadi jika dua atau lebih kontributor melakukan perubahan pada satu berkas,
+terutama jika perubahan dilakukan pada baris yang sama, terlepas dari apakah tujuan perubahan sama atau tidak. 
+Perintah yang digunakan adalah git fetch dan git merge pada cabang utama.
+
+$ git fetch upstream 
+
+
+13- Setelah fetching selesai, sekarang kita merge dengan master.
+$ git merge upstream/master
+
+14- Dengan beberapa proses diatas, setidaknya kita telah bisa memastikan bahwa
+tidak ada konflik dengan repo pusat. Sekarang kita kembali ke branch lokal development saya . sample-project
+
+$ git checkout sample-project
+
+15- dan menggabungkan cabang tersebut dengan cabang utama, sehingga kontribusi dapat 
+dikirimkan kembali ke repositori pusat milik neokree, Material Tabs android library, dengan perintah git rebase <nama-branch>
+
+$ git rebase master
+
+16- Sebelum push ke repositori pusat milik "bangraay", maka terlebih dahulu akan saya push ke 
+repository(bangraaydev) milik saya hasil fork di awal pembahasan tadi, dimana banyak perubahan yang dilakukan di branch tersebut.
+
+$ git push origin sample-project
+
+
+
+16- SELESAII
+
+Setelah di push maka sekarang kita pergi menuju browser masuk ke github, lalu masuk ke repository "github.com/bangraaydev/multiple-auth-ci.git" 
+untuk melakukan pull request, cek / compare perubahan apa yang telah anda lakukan di branch anda pada branch master milik repo pusat, 
+dan anda juga bisa menyisipkan pesan untuk memberitahukan developer pemilik repo pusat tentang apa yang anda lakukan, 
+setelah yakin terhadap perubahan yang telah anda lakukan silahkan pilih create pull request dan selamat menunggu 
+pemilik repo pusat untuk menanggapi di terima tidaknya kontribusi anda. 
+
+
+
+
+
+
+
+--------- sekiannn ----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mkdir repo2
+
+cd repo2/
+
+git clone git@github.com:bangraaydev/multiple-auth-ci.git
+
+cd multiple-auth-ci/
+
+git remote add upstream https://github.com/bangraay/multiple-auth-ci.git
+
+git checkout -b sample-project
+
+touch index.php
+
+git add .
+
+git commit -m "creating file pertama index.php"
+
+git checkout master
+
+ git fetch upstream
+
+ git checkout sample-project
+
+
+ git rebase master
+
+
+ git push origin sample-project
+
+
+
+

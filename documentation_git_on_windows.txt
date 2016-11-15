@@ -1,0 +1,169 @@
+
+
+Github adalah server repository git yang paling terkenal saat ini . Dengan github kita bisa membuat repository public yang bisa dilihat oleh banyak orang dan bersifat open source.
+
+=====================
+------Dasar Git------
+=====================
+
+0- Download dan install aplikasi git for windows disni "http://git-scm.com/downloads"
+
+1. Buka aplikasi git bash yang sudah diinstal. Ketikkan perintah  
+$ ssh-keygen
+
+2- Akan muncul pesan dimana tempat file keygen akan disimpan, tekan enter maka secara default akan tersimpan di dalam folder .ssh
+
+3- Masuk ke folder tempat file id_rsa disimpan di folder .ssh, ketikkan cd .ssh
+
+4- Setelah masuk ke dalam folder ketikkan perintah cat < id_rsa.pub
+
+5- Copy paste code tersebut ke halaman web github tadi (di menu setting=>SSH and GPG keys)
+
+6- Apabila git bash tidak bias melakukan copy, maka kita perlu memasukkan code tersebut ke dalam file text. Dengan mengetikkan:
+$ touch rsa.txt 
+$ cat id_rsa.pub > rsa.txt
+
+7- Buka explorer masuk folder..\users\.ssh dan buka file rsa.text dan copy key tersebut. Selanjutnya masukkan key ke dalam github anda seperti dijelaskan di atas
+
+8- Klik Add Key dan instalasi git sudah selesai.
+
+------------------------------------------------------------------------------------------
+Setelah membuat –ssh key, sekarang kita membuat repository.  Berikut langkah-langkahnya:
+
+1- Klik “Create a New Repository” pada pojok kanan atas
+
+2- Masukkan repository name, misal "learnoop", deskripsi,serta settinggan public dan privatenya.
+
+3- Sekarang buka git bash pada folder project kita, lalu klik kanan pada folder dan klik git bash.
+
+4- Pertama ketikkan perintah dibawah ini untukk settinggan username dan email.
+$ git config --global user.name "bangraaydev"
+$ git config --global user.email framcode@gmail.com
+
+5- buat directory baru (samakan dengan nama repository yang ada di github, biar enak saja mengingatnya)
+$ mkdir learnoop
+
+6- Selanjutnya ketikkan git init, yaitu untuk inisialisasi gitnya dan sampai menambahkan README.
+$ git init
+
+7- Setelah itu ketikkan git add nama_folder  yaitu untuk memasukkan file-file source code serta folder pada proyek kedalam staging area, yaitu suatu kondisi dimana file serta folder source code dimasukkan ke dalam repository namun dalam keadaan temporary, belum disimpan.
+
+$ git add nama_folder
+or 
+//menambah semua file
+$ git add .
+
+8- Sekarang ketikkan git commit –m ‘first commit’ yang artinya kita sudah commit dan siap mengirimkan file README ke server github.
+
+$ git commit –m 'first commit'
+
+9- Selanjutnya  
+$ git remote add origin https://github.com/bangraaydev/learnoop.git
+
+//ini merupakan push pertama kali.
+
+10- Selanjutnya kita download terlebih dahulu file readme yang ada secara default ketika kita membuat repository di github dengan mengetikkan perintah git pull origin master
+
+$ git pull origin master
+
+11- Langkah terakhir mengetikkan perintah git push origin master maka file README akan terkirim ke server github,Masukkan username atau password jika diminta.
+
+$ git push origin master
+
+
+
+
+
+
+
+
+
+====== NOTE ======
+
+jika ad masalah seperti dibawah ini :
+
+/*
+From https://github.com/bangraaydev/learnoop
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+
+To https://github.com/bangraaydev/learnoop.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/bangraaydev/learnoop.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+*/
+
+===========================================================
+Solusinya Adalah :
+$ git pull --allow-unrelated-histories origin master
+$ git fetch
+$ git reset --hard origin/master
+===========================================================
+
+//But check why those branches are no longer common though.
+May be there was a force push rewritting all the history of origin/master.
+
+In which case, if you don't have local commits of your own, it is best to reset your branch to the new one:
+
+
+
+
+
+
+
+
+
+
+
+
+======== COMMAND-COMMAND GIT =========
+
+$ git clone git://github.com/schacon/grit.git
+
+$ git status
+
+//melihat detail berkas mana yang berubah
+//Perintah dibawah ini membandingkan apa yang ada di direktori kerja Anda dengan apa yang ada di area stage. 
+$ git diff
+
+$ git diff --cached
+
+$ git diff --staged
+
+$ git rm nama_directory
+
+$ git mv README.txt README
+
+$ git rm README.txt
+
+$ git add README
+
+//menampilkan server yang berjarak/diremote
+$ git remote -v
+
+$ git log
+
+//filter log hanya pada file README.md
+$ git log -- README.md -p
+
+$ git log --stat
+
+$ git log --pretty=oneline
+
+
+----------------------------------------------------
+//Sebagai contoh, jika Anda melakukan commit dan menyadari bahwa Anda lupa untuk memasukkan beberapa perubahan dalam sebuah berkas ke area stage dan Anda ingin untuk menambahkan perubahan ini ke dalam commit terakhir
+
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend 
+----------------------------------------------------
+
+//digunakan untuk mengeluarkan/membatalkan berkas/file benchmarks.rb dari area stage
+//misal anda setelah menjalankan perintah "git add ." 
+$ git reset HEAD benchmarks.rb
+
