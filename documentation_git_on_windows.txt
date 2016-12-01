@@ -1,6 +1,7 @@
 
 
-Github adalah server repository git yang paling terkenal saat ini . Dengan github kita bisa membuat repository public yang bisa dilihat oleh banyak orang dan bersifat open source.
+Github adalah server repository git yang paling terkenal saat ini . Dengan github kita bisa membuat repository public yang bisa
+dilihat oleh banyak orang dan bersifat open source.
 
 =====================
 ------Dasar Git------
@@ -11,7 +12,8 @@ Github adalah server repository git yang paling terkenal saat ini . Dengan githu
 1. Buka aplikasi git bash yang sudah diinstal. Ketikkan perintah  
 $ ssh-keygen
 
-2- Akan muncul pesan dimana tempat file keygen akan disimpan, tekan enter maka secara default akan tersimpan di dalam folder .ssh
+2- Akan muncul pesan dimana tempat file keygen akan disimpan, tekan enter maka secara default akan tersimpan di dalam folder
+.ssh
 
 3- Masuk ke folder tempat file id_rsa disimpan di folder .ssh, ketikkan cd .ssh
 
@@ -20,6 +22,7 @@ $ ssh-keygen
 5- Copy paste code tersebut ke halaman web github tadi (di menu setting=>SSH and GPG keys)
 
 6- Apabila git bash tidak bias melakukan copy, maka kita perlu memasukkan code tersebut ke dalam file text. Dengan mengetikkan:
+
 $ touch rsa.txt 
 $ cat id_rsa.pub > rsa.txt
 
@@ -46,14 +49,17 @@ $ mkdir learnoop
 6- Selanjutnya ketikkan git init, yaitu untuk inisialisasi gitnya dan sampai menambahkan README.
 $ git init
 
-7- Setelah itu ketikkan git add nama_folder  yaitu untuk memasukkan file-file source code serta folder pada proyek kedalam staging area, yaitu suatu kondisi dimana file serta folder source code dimasukkan ke dalam repository namun dalam keadaan temporary, belum disimpan.
+7- Setelah itu ketikkan git add nama_folder  yaitu untuk memasukkan file-file source code serta folder pada proyek kedalam
+staging area, yaitu suatu kondisi dimana file serta folder source code dimasukkan ke dalam repository namun dalam keadaan
+temporary, belum disimpan.
 
 $ git add nama_folder
 or 
 //menambah semua file
 $ git add .
 
-8- Sekarang ketikkan git commit –m ‘first commit’ yang artinya kita sudah commit dan siap mengirimkan file README ke server github.
+8- Sekarang ketikkan git commit –m ‘first commit’ yang artinya kita sudah commit dan siap mengirimkan file README ke server
+github.
 
 $ git commit –m 'first commit'
 
@@ -62,11 +68,13 @@ $ git remote add origin https://github.com/bangraaydev/learnoop.git
 
 //ini merupakan push pertama kali.
 
-10- Selanjutnya kita download terlebih dahulu file readme yang ada secara default ketika kita membuat repository di github dengan mengetikkan perintah git pull origin master
+10- Selanjutnya kita download terlebih dahulu file readme yang ada secara default ketika kita membuat repository di github
+dengan mengetikkan perintah git pull origin master
 
 $ git pull origin master
 
-11- Langkah terakhir mengetikkan perintah git push origin master maka file README akan terkirim ke server github,Masukkan username atau password jika diminta.
+11- Langkah terakhir mengetikkan perintah git push origin master maka file README akan terkirim ke server github,Masukkan
+username atau password jika diminta.
 
 $ git push origin master
 
@@ -156,7 +164,8 @@ $ git log --pretty=oneline
 
 
 ----------------------------------------------------
-//Sebagai contoh, jika Anda melakukan commit dan menyadari bahwa Anda lupa untuk memasukkan beberapa perubahan dalam sebuah berkas ke area stage dan Anda ingin untuk menambahkan perubahan ini ke dalam commit terakhir
+//Sebagai contoh, jika Anda melakukan commit dan menyadari bahwa Anda lupa untuk memasukkan beberapa perubahan dalam sebuah
+berkas ke area stage dan Anda ingin untuk menambahkan perubahan ini ke dalam commit terakhir
 
 $ git commit -m 'initial commit'
 $ git add forgotten_file
